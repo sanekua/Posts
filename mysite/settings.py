@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3hdu_+7&01w^gexm3ff5hwcbr5@k#kg$sfiw6lo1aj3*@u5*c7'
+#SECRET_KEY = '3hdu_+7&01w^gexm3ff5hwcbr5@k#kg$sfiw6lo1aj3*@u5*c7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -139,5 +139,19 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = "blog:post_list"
 LOGIN_URL = "login"
 
-
-#send_mail('Django mail', 'This e-mail was sent with Django.','justmailforyou2017@gmail.com', ['justmailforyou2017@gmail.com'], fail_silently=False)
+#
+#
+# import django_heroku
+# django_heroku.settings(locals())
+# #send_mail('Django mail', 'This e-mail was sent with Django.','justmailforyou2017@gmail.com', ['justmailforyou2017@gmail.com'], fail_silently=False)
+#
+# import os
+# import psycopg2
+#
+# DATABASE_URL = os.environ['DATABASE_URL']
+#
+# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+#
+#
+# import dj_database_url
+# DATABASES['default'] = dj_database_url.config(conn_ma
