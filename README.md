@@ -31,3 +31,7 @@ You should:
 1. register yourself
 2. login 
 3. You can create your own Posts
+
+
+## Posts deployed on Heroku 
+https://postapp199711.herokuapp.com/
