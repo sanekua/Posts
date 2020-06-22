@@ -1,6 +1,11 @@
 # Posts Application
 
-The post will have the next fields: title, link, creation date, amount of upvotes, author-name
+The post have next fields: 
+- title,
+- link,
+- creation date,
+- amount of upvotes,
+- author-name
 
 
 
@@ -21,3 +26,8 @@ git clone https://github.com/sanekua/Posts.git
 
 login: admin
 passw: xzsawq21
+
+You should:
+1. register yourself
+2. login 
+3. You can create your own Posts

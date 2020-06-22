@@ -11,8 +11,8 @@ class PublishedManager(models.Manager):
 
 
 class Post(models.Model):
-    objects = models.Manager()  # Менеджер по умолчанию
-    published = PublishedManager()  # Собственный менеджер
+    objects = models.Manager()
+    published = PublishedManager()
     STATUS_CHOICES = (
         ('draft', 'Draft'),
         ('published', 'Published'),
@@ -31,7 +31,7 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10,
                               choices=STATUS_CHOICES,
-                              default='draft')
+                              default='published')
 
     class Meta:
         ordering = ('-publish',)
@@ -40,18 +40,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog:post_detail',
-                       args=[self.publish.year,
-                             self.publish.month,
-                             self.publish.day,
-                             self.slug])
-
-# from django.contrib.auth.models import User
-# from blog.models import Post
-# user = User.objects.get(username='admin')
-# Post.published.filter(title__startwith='this')
-# post = Post(title='Another post', slug='another-post', body='Post body.', author=user)
-# post.save()
+        return reverse('blog:post_detail', args=[self.publish.year, self.publish.month, self.publish.day, self.slug])
 
 
 class Comment(models.Model):

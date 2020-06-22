@@ -11,7 +11,7 @@
       </a>  
     </h2> 
     <p class="date">  
-      Published {{ post.publish }} by {{ post.author }} votes {{post.votes}}  comm {{obj.comments.votes}}
+      Published {{ post.publish }} by {{ post.author }} votes {{post.votes}}
     </p>
     {{ post.body|truncatewords:30|linebreaks }}
   {% endfor %}
