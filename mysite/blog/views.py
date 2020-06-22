@@ -45,6 +45,7 @@ def post_detail(request, year, month, day, post):
 			# Сохранить комментарий в базе данных
 			new_comment.save()
 		#print('jjjjjjjjjjjjjjjj',comments.count())
+		VALUE = comments.count()
 	else:
 		comment_form = CommentForm()
 	return render(request,
@@ -77,7 +78,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 class PostListView(ListView):
     queryset = Post.published.all()
     context_object_name = 'posts'
-    paginate_by = 3
+    paginate_by = 6
     template_name = 'blog/list.html'
 
 
@@ -119,3 +120,22 @@ def post_search(request):
                   {'form': form,
                    'query': query,
                    'results': results})
+
+
+####################
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.models import User
+from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from .models import Post
+from django.db import models
+
+class PostCreateView(LoginRequiredMixin, CreateView):
+    model = Post
+    fields = ['title', 'slug', 'author', 'publish', 'status', 'link', 'body'] #'files' ,'living_time' in list
+    def form_valid(self, form):
+        # if form.is_valid():
+        #     form.save()
+        form.instance.author = self.request.user
+        return super().form_valid(form)

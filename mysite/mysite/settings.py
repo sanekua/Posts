@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -130,6 +131,10 @@ EMAIL_HOST_USER = 'justmailforyou2017@gmail.com'
 EMAIL_HOST_PASSWORD = 'xzsawq21'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = "blog:post_list"
+LOGIN_URL = "login"
 
 
 #send_mail('Django mail', 'This e-mail was sent with Django.','justmailforyou2017@gmail.com', ['justmailforyou2017@gmail.com'], fail_silently=False)

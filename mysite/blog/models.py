@@ -1,7 +1,4 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -10,7 +7,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
-        return super(PublishedManager,self).get_queryset().filter(status='published')
+        return super(PublishedManager, self).get_queryset().filter(status='published')
+
 
 class Post(models.Model):
     objects = models.Manager()  # Менеджер по умолчанию
@@ -52,7 +50,6 @@ class Post(models.Model):
 # from blog.models import Post
 # user = User.objects.get(username='admin')
 # Post.published.filter(title__startwith='this')
-#
 # post = Post(title='Another post', slug='another-post', body='Post body.', author=user)
 # post.save()
 

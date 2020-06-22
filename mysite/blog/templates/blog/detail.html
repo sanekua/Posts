@@ -1,7 +1,5 @@
-{% extends "blog/base.html" %}
-  
-{% block title %}{{ post.title }}{% endblock %}  
-  
+{% extends 'users/base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}  
 <h1> <a href="{{post.link}}"> {{ post.title }}</a> </h1>
 
