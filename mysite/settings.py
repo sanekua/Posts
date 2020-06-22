@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -141,8 +142,7 @@ LOGIN_URL = "login"
 
 #
 #
-# import django_heroku
-# django_heroku.settings(locals())
+
 # # #send_mail('Django mail', 'This e-mail was sent with Django.','justmailforyou2017@gmail.com', ['justmailforyou2017@gmail.com'], fail_silently=False)
 #
 # import os
@@ -152,3 +152,4 @@ LOGIN_URL = "login"
 #
 # conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 #
+django_heroku.settings(locals())
