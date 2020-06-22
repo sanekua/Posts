@@ -141,17 +141,17 @@ LOGIN_URL = "login"
 
 #
 #
-# import django_heroku
-# django_heroku.settings(locals())
+import django_heroku
+django_heroku.settings(locals())
 # #send_mail('Django mail', 'This e-mail was sent with Django.','justmailforyou2017@gmail.com', ['justmailforyou2017@gmail.com'], fail_silently=False)
-#
-# import os
-# import psycopg2
-#
-# DATABASE_URL = os.environ['DATABASE_URL']
-#
-# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-#
-#
-# import dj_database_url
-# DATABASES['default'] = dj_database_url.config(conn_ma
+
+import os
+import psycopg2
+
+DATABASE_URL = os.environ['DATABASE_URL']
+
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+
+
+import dj_database_url
+DATABASES['default'] = dj_database_url.config(conn_ma
