@@ -5,9 +5,9 @@
 
 
 <p class="date">
-    Published {{ post.publish }} by {{ post.author }}  votes: {{post.votes}}
+    Published {{ post.publish }} by {{ post.author }}  votes: {{post.votes}}  comment{{ comments.votes }}
   </p>  
-  {{ post.body|linebreaks }}
+  HELLLO {{ post.body|linebreaks }}
 <p>
   <a href="{% url 'blog:post_share' post.id %}">
     Share this post
@@ -29,6 +29,7 @@
     <p class="info">
       Comment {{ forloop.counter }} by {{ comment.name }}
       {{ comment.created }}
+       votes {{ comment.votes }}
     </p>
   {{ comment.body|linebreaks }}
   </div>
@@ -38,7 +39,18 @@
 
 {% with comments.count as total_comments %}
   <h2>
-    {{ total_comments }} comment{{ total_comments|pluralize }}
+    {{ total_comments }} Quantity comment{{ total_comments|pluralize }}
   </h2>
 {% endwith %}
+
+
+<h1>{{ question.question_text }}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
 {% endblock %}
